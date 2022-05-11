@@ -14,18 +14,18 @@
           <span slot="title">最近更新</span>
         </el-menu-item>
       </a>
-      <a href="#slogan">
-        <el-menu-item index="3">
-          <i class="el-icon-document"></i>
-          <span slot="title">下载源码</span>
-        </el-menu-item>
-      </a>
-      <a href="#about">
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">关于我们</span>
-        </el-menu-item>
-      </a>
+<!--      <a href="#slogan">-->
+<!--        <el-menu-item index="3">-->
+<!--          <i class="el-icon-document"></i>-->
+<!--          <span slot="title">下载源码</span>-->
+<!--        </el-menu-item>-->
+<!--      </a>-->
+<!--      <a href="#about">-->
+<!--        <el-menu-item index="4">-->
+<!--          <i class="el-icon-setting"></i>-->
+<!--          <span slot="title">关于我们</span>-->
+<!--        </el-menu-item>-->
+<!--      </a>-->
     </el-menu>
 </template>
 

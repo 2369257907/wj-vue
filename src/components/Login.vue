@@ -63,7 +63,7 @@
 </script>
 <style>
    #paper {
-    background:url("../assets/img/bg/eva1.jpg") no-repeat;
+    background:url("https://tse1-mm.cn.bing.net/th/id/R-C.5ffbf1d3d56c9d4fc867e4c0fb4d75e9?rik=uSTP0GT%2fWFUOOg&riu=http%3a%2f%2fup.bizhitupian.com%2fpic%2fee%2f0f%2fb1%2fee0fb190effc755285598410e8ac9037.jpg&ehk=SH0ToMDIn2XEYwWKkDzuVC1P9O1KMUd06Y8jZr238tM%3d&risl=&pid=ImgRaw&r=0") no-repeat;
     background-position: center;
     height: 100%;
     width: 100%;

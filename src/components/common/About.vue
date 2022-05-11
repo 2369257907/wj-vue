@@ -1,9 +1,9 @@
 <template>
   <div class="footer">
     <div style="border-top:1px #1F1F1F solid;">
-      <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：Evan-Nightly &nbsp;
+      <p class="alt" style="color:#999; line-height:0">&copy; 版权所有：深圳职业技术学院19软件4班 &nbsp;
         <span>技术支持：</span>
-        <a href="" target="_blank" style="color:#999;">Evan & MMK</a>
+        <a href="" target="_blank" style="color:#999;">叶 怡 & 林君瑜 & 黄小琳& 钟俊辉</a>
       </p>
     </div>
   </div>
