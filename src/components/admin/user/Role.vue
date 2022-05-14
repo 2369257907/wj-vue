@@ -88,14 +88,15 @@
             </el-button>
             <el-button
               type="text"
-              size="small">
+              size="small"
+              @click="deleteUser(scope.row.id)">
               移除
             </el-button>
           </template>
         </el-table-column>
       </el-table>
       <div style="margin: 20px 0 20px 0;float: left">
-        <el-button>取消选择</el-button>
+        <el-button >取消选择</el-button>
         <el-button>批量删除</el-button>
       </div>
     </el-card>
@@ -134,6 +135,9 @@
       }
     },
     methods: {
+      showSelectedRole () {
+        console.log(this.selectedRole)
+      },
       listRoles () {
         var _this = this
         this.$axios.get('/admin/role').then(resp => {

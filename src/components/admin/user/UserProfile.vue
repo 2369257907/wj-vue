@@ -21,6 +21,7 @@
         </el-form-item>
         <el-form-item label="角色分配" label-width="120px" prop="roles">
           <el-checkbox-group v-model="selectedRolesIds">
+<!--          <el-checkbox-group >-->
               <el-checkbox v-for="(role,i) in roles" :key="i" :label="role.id">{{role.nameZh}}</el-checkbox>
           </el-checkbox-group>
         </el-form-item>
@@ -41,6 +42,7 @@
     <el-card style="margin: 18px 2%;width: 95%">
       <el-table
         :data="users"
+        ref="multipleTable"
         stripe
         :default-sort = "{prop: 'id', order: 'ascending'}"
         style="width: 100%"
@@ -94,21 +96,23 @@
           width="120">
           <template slot-scope="scope">
             <el-button
-              @click="editUser(scope.row)"
+              @click="editUser(scope.row.id)"
               type="text"
               size="small">
               编辑
             </el-button>
             <el-button
               type="text"
-              size="small">
+              size="small"
+              v-on:click="deleteUser(scope.row.id)"
+            >
               移除
             </el-button>
           </template>
         </el-table-column>
       </el-table>
       <div style="margin: 20px 0 20px 0;float: left">
-        <el-button>取消选择</el-button>
+        <el-button v-on:click="toggleSelection">取消选择</el-button>
         <el-button>批量删除</el-button>
       </div>
     </el-card>
@@ -126,7 +130,8 @@
             roles: [],
             dialogFormVisible: false,
             selectedUser: [],
-            selectedRolesIds: []
+            selectedRolesIds: [],
+            multipleSelection: []
           }
       },
       mounted () {
@@ -139,6 +144,20 @@
         }
       },
       methods: {
+        toggleSelection (rows) {
+          if (rows) {
+            console.log(1)
+            rows = Array.from(rows)
+            rows.forEach(row => {
+              this.$refs.multipleTable.toggleRowSelection(row)
+            })
+          } else {
+            this.$refs.multipleTable.clearSelection()
+          }
+        },
+        handleSelectionChange (val) {
+          this.multipleSelection = val
+        },
         listUsers () {
           var _this = this
           this.$axios.get('/admin/user').then(resp => {
@@ -218,6 +237,20 @@
             if (resp && resp.data.code === 200) {
               this.$alert('密码已重置为 123')
           }
+          })
+        },
+        deleteUser (id) {
+          console.log('移除：' + id)
+          this.$axios.get('/admin/user/delete', {
+            params: {
+              id: id
+            }
+          }).then(resp => {
+            console.log(resp)
+            // if (resp && resp.data.code === 200) {
+              this.$alert('删除成功')
+              this.listUsers()
+            // }
           })
         }
       }
